@@ -10,7 +10,7 @@
 
 <?php
 
-function compare($numberOne = 10, $numberTwo = 5) {
+function compare($numberOne, $numberTwo) {
     if ($numberOne > $numberTwo) {
         return "Le premier nombre est plus grand";
     }
@@ -21,7 +21,7 @@ function compare($numberOne = 10, $numberTwo = 5) {
         return "Les deux nombres sont identiques";
     }
   }
-echo compare();
+echo compare(10, 5);
 
 ?>
 

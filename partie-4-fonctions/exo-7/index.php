@@ -10,7 +10,7 @@
 
     <?php
 
-     function person($gender ="Femme", $age = 31)
+     function person($age, $gender)
     {
         if ($age >= 18 && $gender == "Homme") {
             return "Vous êtes un homme et vous êtes majeur";
@@ -25,7 +25,7 @@
             return "Vous êtes une femme et vous êtes mineur";
         }
     }
-    echo person();
+    echo person(31, 'Femme');
 
     ?>
 

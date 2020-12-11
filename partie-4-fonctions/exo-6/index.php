@@ -10,11 +10,11 @@
 
     <?php
 
-     function concact($name = "Dodré", $lastName = "Laurie", $age = 31)
+     function concact($name, $lastName, $age)
     {
         return "Bonjour $name $lastName, tu as $age ans.";
     }
-    echo concact();
+    echo concact('Dodré', 'Laurie', 31);
 
     ?>
 

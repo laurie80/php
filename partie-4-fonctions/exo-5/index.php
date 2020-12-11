@@ -10,14 +10,14 @@
 
     <?php
 
-    function concact($numberOne = 20, $text = "est la note que Nicolas nous attribuera")
+    function concact($numberOne, $text)
     {
         // $concatenation = $numberOne. " " .$text; 
         // return $concatenation;
         // ou
         return "$numberOne $text";
     }
-    echo concact();
+    echo concact(20, "est la note que Nicolas nous attribuera");
 
     ?>
 

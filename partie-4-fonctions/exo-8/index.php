@@ -8,11 +8,11 @@
 
     <?php
 
-     function add($numberOne = 10, $numberTwo = 31, $numberThree= 56)
+     function add($numberOne, $numberTwo, $numberThree)
     {
             return $numberOne+$numberTwo+$numberThree;
     }
-    echo add();
+    echo add(10, 31, 56);
 
     ?>
 
