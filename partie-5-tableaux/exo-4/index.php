@@ -19,6 +19,8 @@
      $months[10] = 'octobre';
      $months[11] = 'novembre';
      $months[12] = 'décembre';
+
+     echo $months[8] = 'août';
     ?>
 
 <!-- <p>Avec le tableau de l'exercice 1, modifier le mois de **aout** pour lui ajouter l'accent manquant.</p> -->

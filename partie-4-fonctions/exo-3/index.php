@@ -6,8 +6,6 @@
 
 <body>
 
-   
-
 <?php
 
 function caracter($hello = "Bonjour", $identity = "Laurie") {
@@ -17,6 +15,14 @@ function caracter($hello = "Bonjour", $identity = "Laurie") {
     // return "$hello $identity";
   }
 echo caracter();
+
+// SECONDE MANIERE DE LE FAIRE
+
+// function caracter($hello, $identity)
+//     {
+//         return $hello . $identity;
+//     }
+//     echo caracter("Bonjour", " Laurie");
 
 ?>
 
