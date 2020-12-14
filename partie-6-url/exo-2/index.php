@@ -6,7 +6,8 @@
 
 <body>
 
-<a href="index.php?lastname=Nemare&amp;firstname=Jean">Hello</a>
+<button><a href="index.php?lastname=Nemare&amp;firstname=Jean">Envoi des paramètres</a></button>
+<button><a href="index.php">Retour INDEX</a></button>
 
 <?php
 
@@ -14,9 +15,9 @@ if (isset($_GET['age']))
 {
 	echo $_GET['age'];
 }
-else
+else 
 {
-	echo 'Il faut renseigner un age !';
+	echo 'Le paramètre est introuvable !';
 }
 
 ?>

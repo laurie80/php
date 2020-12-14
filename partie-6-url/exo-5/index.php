@@ -6,11 +6,20 @@
 
 <body>
 
-<a href="index.php?week=12">Par ici !</a>
+<button><a href="index.php?week=12">Envoi des paramètres</a></button>
+<button><a href="index.php">Retour INDEX</a></button>
 
+<?php
 
-<?php 
-echo $_GET['week']; 
+if (isset($_GET['week']))
+{
+	echo $_GET['week'];
+}
+else 
+{
+	echo ' ';
+}
+
 ?>
 
 <!-- <p>Tester sur cette page que tous les paramètres de cette URL existent  et les afficher:

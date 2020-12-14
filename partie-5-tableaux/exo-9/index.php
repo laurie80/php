@@ -8,7 +8,13 @@
 
     <?php
 
-    $coordonnees = [80 => 'Somme', 02 => 'Aisne', 60 => 'Oise', 62 => 'Pas-de-Calais', 59 => 'Nord', 51 => 'Reims'];
+    $coordonnees = [
+        80 => 'Somme', 
+        02 => 'Aisne', 
+        60 => 'Oise', 
+        62 => 'Pas-de-Calais', 
+        59 => 'Nord', 
+        // 51 => 'Reims'];
     // ou
     // $coordonnees = array (80 => 'Somme', 02 => 'Aisne', 60 => 'Oise', 62 => 'Pas-de-Calais', 59 => 'Nord');
     foreach($coordonnees as $element)

@@ -6,16 +6,25 @@
 
 <body>
 
-<a href="index.php?startDate=2/05/2016&amp;endDate=27/11/2016">Par ici !</a>
+<button><a href="index.php?startDate=2/05/2016&amp;endDate=27/11/2016">Envoi des paramètres</a></button>
+<button><a href="index.php">Retour INDEX</a></button>
 
+<?php
 
-<?php 
-echo $_GET['startDate'] . ' ' . $_GET['endDate']; 
+if (isset($_GET['startDate']) && isset($_GET['endDate']))
+{
+	echo $_GET['startDate'] . ' ' . $_GET['endDate'];
+}
+else 
+{
+	echo ' ';
+}
+
 ?>
-
 <!-- <p>Tester sur cette page que tous les paramètres de cette URL existent  et les afficher: 
     **index.php?startDate=2/05/2016&endDate=27/11/2016
 </p> -->
 </body>
 
 </html>
+

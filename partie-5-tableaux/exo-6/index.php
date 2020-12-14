@@ -7,15 +7,13 @@
 <body>
 
     <?php
-    //  $coordonnees[80] = 'Somme';
-    //  $coordonnees[02] = 'Aisne';
-    //  $coordonnees[60] = 'Oise';
-    //  $coordonnees[62] = 'Pas-de-Calais';
-    //  $coordonnees[59] = 'Nord';
 
-    // echo $coordonnees[59];
-
-    $coordonnees = [80 => 'Somme', 02 => 'Aisne', 60 => 'Oise', 62 => 'Pas-de-Calais', 59 => 'Nord'];
+    $coordonnees = [
+        80 => 'Somme', 
+        02 => 'Aisne', 
+        60 => 'Oise', 
+        62 => 'Pas-de-Calais', 
+        59 => 'Nord'];
     // ou
     // $coordonnees = array (80 => 'Somme', 02 => 'Aisne', 60 => 'Oise', 62 => 'Pas-de-Calais', 59 => 'Nord');
 
