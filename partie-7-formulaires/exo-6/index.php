@@ -1,17 +1,30 @@
 <?php
+
+$regexName = "/^[a-zA-Z]+$/";
+
 if (isset($_GET["civility"]) && isset($_GET["firstName"]) && isset($_GET["lastName"])) {
-    if (preg_match("/^[a-zA-Z]+$/", $_GET["civility"])) {
+    if (preg_match($regexName, $_GET["civility"])) {
         $securedCivility = htmlspecialchars($_GET["civility"]);
+    } else {
+        $securedCivility = "<i>Mauvais format</i>";
     }
-    if (preg_match("/^[a-zA-Z]+$/", $_GET["firstName"])) {
+
+    if (preg_match($regexName, $_GET["firstName"])) {
         $securedFirstName = htmlspecialchars($_GET["firstName"]);
+    } else {
+        $securedFirstName = "<i>Mauvais format</i>";
     }
-    if (preg_match("/^[a-zA-Z]+$/", $_GET["lastName"])) {
+
+    if (preg_match($regexName, $_GET["lastName"])) {
         $securedLastName = htmlspecialchars($_GET["lastName"]);
+    } else {
+        $securedLastName = "<i>Mauvais format</i>";
     }
-    echo $securedCivility . '<br>';
-    echo $securedFirstName . '<br>';
-    echo $securedLastName;
+
+    echo $securedCivility . "<br>";
+    echo $securedFirstName . "<br>";
+    echo $securedLastName . "<br>";
+
 } else {
     echo '<form action="index.php" method="get">
     <div>
@@ -30,7 +43,7 @@ if (isset($_GET["civility"]) && isset($_GET["firstName"]) && isset($_GET["lastNa
     </div>
     <div>
         <!-- <button type="button" class="btn btn-secondary"><a class="text-white" href="user.php">Envoyer</a></button> -->
-        <input type="submit" value="Envoyer" href="index.php"/>
+        <input type="submit" value="Envoyer">
     </div>
 </form>';
 }

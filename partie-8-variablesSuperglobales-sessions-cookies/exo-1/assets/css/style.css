@@ -1,0 +1,14 @@
+#userAgent {
+    color: blue;
+    border: 1px solid blue;
+}
+
+#remoteAddr {
+    color: red;
+    border: 1px solid red;
+}
+
+#name {
+    color: rgb(9, 190, 9);
+    border: 1px solid rgb(9, 190, 9);
+}

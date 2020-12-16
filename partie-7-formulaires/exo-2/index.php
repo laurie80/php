@@ -24,7 +24,7 @@
         </div>
         <div>
             <!-- <button type="button" class="btn btn-secondary"><a class="text-white" href="user.php">Envoyer</a></button> -->
-            <input type="submit" value="Envoyer" href="user.php"/>
+            <input type="submit" value="Envoyer">
         </div>
     </form>
 

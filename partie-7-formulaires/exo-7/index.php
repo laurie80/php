@@ -1,18 +1,33 @@
 <?php
-if (isset($_POST["civility"]) && isset($_POST["firstName"]) && isset($_POST["lastName"])) {
-    if (preg_match("/^[a-zA-Z]+$/", $_POST["civility"])) {
-        $securedCivility = htmlspecialchars($_POST["civility"]);
-    }
-    if (preg_match("/^[a-zA-Z]+$/", $_POST["firstName"])) {
-        $securedFirstName = htmlspecialchars($_POST["firstName"]);
-    }
-    if (preg_match("/^[a-zA-Z]+$/", $_POST["lastName"])) {
-        $securedLastName = htmlspecialchars($_POST["lastName"]);
-    }
-    echo $securedCivility . '<br>';
-    echo $securedFirstName . '<br>';
-    echo $securedLastName . '<br>';
+
+if (empty($_POST)) {
+    $showForm = true;
+} else {
+    $showForm = false;
 }
+
+$regexName = "/^[a-zA-Z]+$/";
+
+if (isset($_POST["civility"]) && isset($_POST["firstName"]) && isset($_POST["lastName"])) {
+    if (preg_match($regexName, $_POST["civility"])) {
+        $securedCivility = htmlspecialchars($_POST["civility"]);
+    } else {
+        $securedCivility = "<i>Mauvais format</i>";
+    }
+
+    if (preg_match($regexName, $_POST["firstName"])) {
+        $securedFirstName = htmlspecialchars($_POST["firstName"]);
+    } else {
+        $securedFirstName = "<i>Mauvais format</i>";
+    }
+
+    if (preg_match($regexName, $_POST["lastName"])) {
+        $securedLastName = htmlspecialchars($_POST["lastName"]);
+    } else {
+        $securedLastName = "<i>Mauvais format</i>";
+    }
+}
+
 if (isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
     if ($_FILES['image']['size'] <= 3000000) {
         $infosfiles = pathinfo($_FILES['image']['name']);
@@ -20,35 +35,13 @@ if (isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
         $extensionsArray = array('jpg', 'JPEG', 'gif', 'png');
         if (in_array($extensionFiles, $extensionsArray)) {
             move_uploaded_file($_FILES['image']['tmp_name'], 'uploads/' . time() . basename($_FILES['image']['name']));
-            echo "Fichier bien envoyé" ;
+            echo "Fichier bien envoyé";
         } else {
             echo "Veuillez choisir un fichier au format PDF";
         }
     }
-} else {
-    echo '<form action="index.php" method="post" enctype="multipart/form-data">
-                    <div>
-                        <select name="civility">
-                            <option>Mr
-                            <option>Mme
-                        </select>
-                    </div>
-                    <div>
-                        <label for="firstName">Nom :</label>
-                        <input type="text" id="firstName" name="firstName">
-                    </div>
-                    <div>
-                        <label for="lastName">Prénom :</label>
-                        <input type="text" id="lastName" name="lastName">
-                    </div>
-                    <div>
-                        <input type="file" id="image" name="image" />
-                    </div>
-                    <div>
-                        <input type="submit" value="Envoyer" href="index.php"/>
-                    </div>
-                 </form>';
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -63,6 +56,41 @@ if (isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
 
 
 <body>
+
+    <?php if ($showForm) { ?>
+
+        <form action="index.php" method="post" enctype="multipart/form-data">
+            <div>
+                <select name="civility">
+                    <option>Mr
+                    <option>Mme
+                </select>
+            </div>
+            <div>
+                <label for="firstName">Nom :</label>
+                <input type="text" id="firstName" name="firstName">
+            </div>
+            <div>
+                <label for="lastName">Prénom :</label>
+                <input type="text" id="lastName" name="lastName">
+            </div>
+            <div>
+                <input type="file" id="image" name="image" />
+            </div>
+            <div>
+                <input type="submit" value="Envoyer">
+            </div>
+        </form>
+
+    <?php } else { ?>
+        <p>
+            <?php
+            echo $securedCivility . '<br>';
+            echo $securedFirstName . '<br>';
+            echo $securedLastName . '<br>';
+            ?>
+        </p>
+    <?php } ?>
 
     <!-- <p>
     Au formulaire de l'exercice 5, 

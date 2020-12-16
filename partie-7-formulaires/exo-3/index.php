@@ -16,15 +16,15 @@
 
         <div>
             <label for="firstName">Nom :</label>
-            <input type="text" id="firstName" name="firstName">
+            <input type="text" id="firstName" name="firstname">
         </div>
         <div>
             <label for="lastName">Prénom :</label>
-            <input type="text" id="lastName" name="lastName">
+            <input type="text" id="lastName" name="lastname">
         </div>
         <div>
             <!-- <button type="button" class="btn btn-secondary"><a class="text-white" href="user.php">Envoyer</a></button> -->
-            <input type="submit" value="Envoyer" href="user.php"/>
+            <input type="submit" value="Envoyer">
         </div>
     </form>
 

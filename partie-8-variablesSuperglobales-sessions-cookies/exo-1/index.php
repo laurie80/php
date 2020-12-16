@@ -1,42 +1,28 @@
-<?php
-
-$regexName = "/^[a-zA-Z]+$/";
-
-if (isset($_GET["firstname"]) && isset($_GET["lastname"])) {
-
-    // Sécurisation des données, regex pour verifier prénom et nom
-    if (preg_match($regexName, $_GET["firstname"])) {
-        $securedFirstname = htmlspecialchars($_GET["firstname"]);
-    } else {
-        $securedFirstname = "<i>Mauvais format</i>";
-    }
-
-    if (preg_match($regexName, $_GET["lastname"])) {
-        $securedLastname = htmlspecialchars($_GET["lastname"]);
-    } else {
-        $securedLastname = "<i>Mauvais format</i>";
-    }
-}
-
-var_dump($_GET);
-
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/img/bootstrap.min.css">
-    <title>Exercice 3 partie 7 Les Formulaires</title>
+    <title>Exercice 1 partie 8 Variables superglobales, sessions et cookies</title>
 </head>
 
 <body>
+<p class="text-center" id="userAgent"><span class="text-uppercase">user agent : </span><?=$_SERVER['HTTP_USER_AGENT']. '<br>'?></p>
+<p class="text-center" id="remoteAddr"><span class="text-uppercase">adresse ip : </span><?=$_SERVER['REMOTE_ADDR']. '<br>'?></p>
+<p class="text-center" id="name"><span class="text-uppercase">nom du serveur : </span><?=$_SERVER['SERVER_NAME']?></p>
 
-    <p>
-        <p>Bonjour <?= $securedFirstname . " " . $securedLastname; ?></p>
-    </p>
+
+    <!-- <p>
+Dans tous les exercices, il faudra faire une page HTML 5 valide et soigner son CSS.
+## Exercice 1
+Faire une page HTML permettant de donner à l'utilisateur :
+- son User Agent
+- son adresse ip
+- le nom du serveur  
+</p> -->
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
     </script>

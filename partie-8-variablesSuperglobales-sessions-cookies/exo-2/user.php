@@ -1,24 +1,7 @@
 <?php
 
-$regexName = "/^[a-zA-Z]+$/";
-
-if (isset($_GET["firstname"]) && isset($_GET["lastname"])) {
-
-    // Sécurisation des données, regex pour verifier prénom et nom
-    if (preg_match($regexName, $_GET["firstname"])) {
-        $securedFirstname = htmlspecialchars($_GET["firstname"]);
-    } else {
-        $securedFirstname = "<i>Mauvais format</i>";
-    }
-
-    if (preg_match($regexName, $_GET["lastname"])) {
-        $securedLastname = htmlspecialchars($_GET["lastname"]);
-    } else {
-        $securedLastname = "<i>Mauvais format</i>";
-    }
-}
-
-var_dump($_GET);
+// On démarre la session AVANT d'écrire du code HTML
+session_start();
 
 ?>
 
@@ -28,15 +11,22 @@ var_dump($_GET);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/img/bootstrap.min.css">
-    <title>Exercice 3 partie 7 Les Formulaires</title>
+    <title>Exercice 2 partie 8 Variables superglobales, sessions et cookies</title>
 </head>
 
 <body>
 
-    <p>
-        <p>Bonjour <?= $securedFirstname . " " . $securedLastname; ?></p>
-    </p>
+<p>Bonjour <?= $_SESSION['lastname'] . ' ' . $_SESSION['firsname'];?> tu as <?= $_SESSION['age']; ?> ans.</p>
+
+    <!-- <p>
+Sur la page index, faire un liens vers une autre page. 
+Passer d'une page à l'autre le contenu des variables **lastname**, 
+**firstname** et **age** grâce aux sessions. 
+Ces variables auront été définies directement dans le code.  
+Il faudra afficher le contenu de ces variables sur la deuxième page. 
+</p> -->
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
     </script>
