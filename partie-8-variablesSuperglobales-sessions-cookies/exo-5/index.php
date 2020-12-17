@@ -1,11 +1,17 @@
 <?php
 
+if (empty($_POST)) {
+    $showForm = true;
+} else {
+    $showForm = false;
+}
+
 if (isset($_POST['login'], $_POST['password'])) {
     $userLogin = $_POST['login'];
     $userPassword = $_POST['password'];
     setcookie('user', $userLogin, time() + 365 * 24 * 3600, null, null, false, true);
     setcookie('pass', $userPassword, time() + 365 * 24 * 3600, null, null, false, true);
-    header('Location: user.php');
+    setcookie('pass', 'Jeudi', time() + 365 * 24 * 3600, null, null, false, true);
 }
 
 ?>
@@ -18,12 +24,12 @@ if (isset($_POST['login'], $_POST['password'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/img/bootstrap.min.css">
-    <title>Exercice 4 partie 8 Variables superglobales, sessions et cookies</title>
+    <title>Exercice 5 partie 8 Variables superglobales, sessions et cookies</title>
 </head>
 
 <body>
 
-
+    <?php if ($showForm) { ?>
         <form action="index.php" method="post">
 
             <div>
@@ -41,9 +47,17 @@ if (isset($_POST['login'], $_POST['password'])) {
             </div>
 
         </form>
-  
+    <?php } else { ?>
+        <p>
+            <?php
+            if (isset($_COOKIE['user'], $_COOKIE['pass'])) {
+                echo 'Votre nom d\'utilisateur est ' . htmlspecialchars($_COOKIE['user']) . ' et votre mot de passe est ' . htmlspecialchars($_COOKIE['pass']) . ' . ';
+            }
+            ?>
+        </p>
+    <?php } ?>
     <!-- <p>
-Faire une page qui va récupérer les informations du cookie créé à l'exercice 3 et qui les affiches.
+Faire une page qui va pouvoir modifier le contenu du cookie de l'exercice 3.
 </p> -->
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
