@@ -1,28 +1,25 @@
+<?php
+    $date = date('d-m-Y');
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/img/bootstrap.min.css">
-    <title>Exercice 4 partie 8 Variables superglobales, sessions et cookies</title>
+    <meta name="viewport" content="width=e, initial-scale=1.0">
+    <title>Exercice 2 Partie 9</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="uploadPreview/style.css">
 </head>
 
 <body>
 
-    <p>
-        <?php
-        if (isset($_COOKIE['user'], $_COOKIE['pass'])) {
-            echo 'Votre nom d\'utilisateur est ' . htmlspecialchars($_COOKIE['user']) . ' et votre mot de passe est ' . htmlspecialchars($_COOKIE['pass']) . ' . ';
-        }
-        ?>
-    </p>
+    <p>Afficher la date courante en respectant la forme jj-mm-aa (ex : 16-05-16).</p>
 
-    <!-- <p>
-Faire une page qui va récupérer les informations du cookie créé à l'exercice 3 et qui les affiches.
-</p> -->
+    <p>Nous sommes le <?=$date?>.</p>
 
+    <script src="uploadPreview/script.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
