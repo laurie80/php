@@ -1,4 +1,5 @@
 <?php
+
 setlocale (LC_TIME, 'fr_FR.utf8','fra'); 
 $date = strftime ('%A %d %B %Y');
 $dateTimestamps = time();
@@ -6,11 +7,6 @@ $time = strftime ('%T');
 $date1 = mktime(15, 00, 0, 8, 2, 2016);
 // $date1 = strtotime('2016-08-02 15:00:00');
 
-
-//Tableaux qui me donne une vue détaillé du Timestamp//
-echo '<pre>';
-print_r(getdate($date1));
-echo '</pre>';
 ?>
 
 <!DOCTYPE html>

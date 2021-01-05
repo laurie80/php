@@ -33,8 +33,8 @@ if (isset($_GET["months"]) && isset($_GET["years"])) {
 
     $nbDays = cal_days_in_month(CAL_GREGORIAN, $month, $years);
     $firstDayInMonth = strftime("%u", strtotime($month . "/01/" . $years));
-    var_dump($nbDays);
-    var_dump($firstDayInMonth);
+    // var_dump($nbDays);
+    // var_dump($firstDayInMonth);
 }
 
 ?>
@@ -57,37 +57,48 @@ if (isset($_GET["months"]) && isset($_GET["years"])) {
     <?php
     if (isset($_GET["months"]) && isset($_GET["years"])) {
     ?>
-        <h1 class="text-center"><?= $_GET["months"] . " " . $_GET["years"] ?></h1>
+        <h1 class="text-center text-primary m-4"><?= $_GET["months"] . " " . $_GET["years"] ?></h1>
     <?php
     }
     ?>
 
     <table class="table table-bordered">
-        <thead>
+        <thead class="title text-center text-white bg-dark">
             <tr>
                 <?php
                 foreach ($weeks as $week) {
                 ?>
-                    <th><?= $week ?></th>
+                    <th style="width: 100px;"><?= $week ?></th>
                 <?php
                 }
                 ?>
             </tr>
         </thead>
-        <tbody>
+     
+        <tbody class="text-center font-weight-bold">
             <tr>
                 <?php
                 for ($case = 1; $case <= ($nbDays + ($firstDayInMonth - 1)); $case++) {
                 ?>
-                    <td><?= $case ?></td>
+                    <td class="align-middle <?= $case >= $firstDayInMonth ? "" : "bg-secondary"?>" 
+                    style="width: 100px; height: 80px"><?= $case >= $firstDayInMonth ? $case - $firstDayInMonth + 1 : "" ?></td>
                 <?php
-                }
+                    if ($case % 7 == 0) { 
+                ?>
+                    </tr>
+                    <tr>
+                <?php
+                    }
+                ?>
+                <?php
+                    }
                 ?>
             </tr>
         </tbody>
+        
     </table>
 
-    <a href="index.php" class="btn btn-primary">Retour</a>
+    <center><a href="index.php" class="btn btn-primary m-3">Retour</a></center>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
     </script>
