@@ -33,9 +33,15 @@ if (isset($_GET["months"]) && isset($_GET["years"])) {
 
     $nbDays = cal_days_in_month(CAL_GREGORIAN, $month, $years);
     $firstDayInMonth = strftime("%u", strtotime($month . "/01/" . $years));
-    // var_dump($nbDays);
-    // var_dump($firstDayInMonth);
+
+    if ((($nbDays + $firstDayInMonth - 1) % 7) != 0) {
+        $extraCases = 7 - (($nbDays + $firstDayInMonth - 1) % 7);
+    } else {
+        $extraCases = 0;
+    }
 }
+
+
 
 ?>
 
@@ -78,10 +84,10 @@ if (isset($_GET["months"]) && isset($_GET["years"])) {
         <tbody class="text-center font-weight-bold">
             <tr>
                 <?php
-                for ($case = 1; $case <= ($nbDays + ($firstDayInMonth - 1)); $case++) {
+                for ($case = 1; $case <= ($nbDays + ($firstDayInMonth - 1 ) + $extraCases); $case++) {
                 ?>
-                    <td class="align-middle <?= $case >= $firstDayInMonth ? "" : "bg-secondary"?>" 
-                    style="width: 100px; height: 80px"><?= $case >= $firstDayInMonth ? $case - $firstDayInMonth + 1 : "" ?></td>
+                    <td class="align-middle <?= $case >= $firstDayInMonth && $case - $firstDayInMonth + 1 <= $nbDays ? "" : "bg-secondary"?>" 
+                    style="width: 100px; height: 80px"><?= $case >= $firstDayInMonth && $case - $firstDayInMonth + 1 <= $nbDays ? $case - $firstDayInMonth + 1 : "" ?></td>
                 <?php
                     if ($case % 7 == 0) { 
                 ?>
