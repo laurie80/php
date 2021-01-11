@@ -29,10 +29,9 @@ if (isset($_GET['firstname'],$_GET['lastname'], $_GET['gender'])) {
         echo 'vous avez choisi l\'option Mme';
     }
 }
-var_dump($_GET);?>
+var_dump($_GET);
+
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -89,3 +88,5 @@ var_dump($_GET);?>
 </body>
 
 </html>
+
+
