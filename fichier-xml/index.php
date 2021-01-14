@@ -12,18 +12,47 @@
 
 <body>
 
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark d-flex">
+        <div class="d-flex ml-auto justify-content-start align-items-start">
+            <img class="image-responsive mx-auto " src="assets/img/Logo-Ocordo-Travaux-Amiens.png" alt="logo Ocordo"></img>
+            <button class="navbar-toggler mx-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+        </div>
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse col-lg-12 col-sm-12" id="navbarNav">
+                <ul class="navbar-nav  ml- auto mx-auto ">
+                    <li class="nav-item">
+                        <a class="titleMenu mt-2" href="accueil">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="titleMenu  mt-2 " href="qui-sommes-nous">Qui sommes nous?</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="titleMenu  mt-2" href="nos-clients-témoignent">Nos clients témoignent</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="titleMenu  mt-2 " href="contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+    </nav>
+    </div>
     <?php
+    // echo $_GET["page"];
+    if (isset($_GET["page"]) && ($_GET["page"]) == 1) && $i->page {
+        $xml = simplexml_load_file("source.xml");
+        foreach ($xml->page as $i) {
+            ?>
+            <p class="title"><?= $i->title ?></p>
+            <p class="content"><?= $i->content ?></p>
+            <?php
+        }
+      }
+    ?>
 
-    $xml = simplexml_load_file("source.xml");
-    foreach ($xml->page as $i) {
-       ?>
-       <p class="menu"><?= $i->menu?></p>
-       <p class="title"><?= $i->title?></p>
-       <?php
-    }
-        ?>
 
-    
 
 
 
