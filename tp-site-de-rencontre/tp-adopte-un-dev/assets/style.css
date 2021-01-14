@@ -1,0 +1,67 @@
+/* Global */
+.backGroundForm {
+    background-color: #193549;
+}
+
+.btn {
+    background-color: #ffc51b;
+    border-radius: 15px;
+}
+
+.btn:hover {
+    box-shadow: 3px 3px 8px #757575;
+}
+
+/* Index */
+form {
+    color: #7fffbb;
+}
+
+/* User */
+.btn-user {
+    width: 15rem;
+    margin: 1rem 1rem;
+}
+
+td {
+    color: #7fffbb;
+}
+
+/* Lovers */
+.card:hover {
+    box-shadow: 3px 3px 8px#7FFFBB;
+}
+
+.card {
+    background-color: #193549;
+}
+
+/* Scramble effect */
+
+body {
+    background: #122738;
+    color: #7fffbb;
+    height: 100%;
+}
+
+.container {
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.yellow-bracket {
+    color: #ffc51b;
+}
+
+.text {
+    font-weight: 100;
+    font-size: 28px;
+    color: #73f2f3;
+}
+
+.dud {
+    color: #757575;
+}
