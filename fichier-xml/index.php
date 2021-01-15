@@ -1,3 +1,9 @@
+<?php
+
+require_once "index_controller.php";
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -7,7 +13,7 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
-    <title>TP Fichier XML Site Maçonnerie</title>
+    <title>Maçonnerie Ocordo</title>
 </head>
 
 <body>
@@ -22,35 +28,29 @@
         </div>
         <div class="container-fluid">
             <div class="collapse navbar-collapse col-lg-12 col-sm-12" id="navbarNav">
-                <ul class="navbar-nav  ml- auto mx-auto ">
+                <ul class="navbar-nav ml-auto mx-auto ">
                     <li class="nav-item">
-                        <a class="titleMenu mt-2" href="accueil">Accueil</a>
+                        <a class="titleMenu mt-2" href="accueil"><?= isset($menu) ? $menu : "" ?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="titleMenu  mt-2 " href="qui-sommes-nous">Qui sommes nous?</a>
+                        <a class="titleMenu  mt-2 " href="qui-sommes-nous"><?= isset($menu2) ? $menu2 : "" ?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="titleMenu  mt-2" href="nos-clients-témoignent">Nos clients témoignent</a>
+                        <a class="titleMenu  mt-2" href="nos-clients-témoignent"><?= isset($menu3) ? $menu3 : "" ?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="titleMenu  mt-2 " href="contact">Contact</a>
+                        <a class="titleMenu  mt-2 " href="contact"><?= isset($menu4) ? $menu4 : "" ?></a>
                     </li>
                 </ul>
             </div>
     </nav>
+
+    <div class="container">
+        <?= isset($title) ? $title : "" ?>
+        <?= isset($content) ? $content : "" ?>
     </div>
-    <?php
-    // echo $_GET["page"];
-    if (isset($_GET["page"]) && ($_GET["page"]) == 1) && $i->page {
-        $xml = simplexml_load_file("source.xml");
-        foreach ($xml->page as $i) {
-            ?>
-            <p class="title"><?= $i->title ?></p>
-            <p class="content"><?= $i->content ?></p>
-            <?php
-        }
-      }
-    ?>
+
+    </div>
 
 
 
