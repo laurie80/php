@@ -24,33 +24,37 @@ require_once "index_controller.php";
             <button class="navbar-toggler mx-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
         </div>
+
         <div class="container-fluid">
             <div class="collapse navbar-collapse col-lg-12 col-sm-12" id="navbarNav">
                 <ul class="navbar-nav ml-auto mx-auto ">
                     <li class="nav-item">
-                        <a class="titleMenu mt-2" href="accueil"><?= isset($menu) ? $menu : "" ?></a>
+                        <a class="titleMenu mt-2" href="accueil"><?= $menu ?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="titleMenu  mt-2 " href="qui-sommes-nous"><?= isset($menu2) ? $menu2 : "" ?></a>
+                        <a class="titleMenu  mt-2 " href="qui-sommes-nous"><?= $menu2 ?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="titleMenu  mt-2" href="nos-clients-témoignent"><?= isset($menu3) ? $menu3 : "" ?></a>
+                        <a class="titleMenu  mt-2" href="nos-clients-témoignent"><?= $menu3 ?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="titleMenu  mt-2 " href="contact"><?= isset($menu4) ? $menu4 : "" ?></a>
+                        <a class="titleMenu  mt-2 " href="contact"><?= $menu4 ?></a>
                     </li>
                 </ul>
             </div>
+        </div>
     </nav>
 
-    <div class="container">
-        <?= isset($title) ? $title : "" ?>
+    <div class="container-fluid">
+        <h3 class="title my-3"><?= isset($title) ? $title : "" ?></h3>
         <?= isset($content) ? $content : "" ?>
     </div>
 
-    </div>
+    <footer class="bg-dark text-center align-items-center justify-content-center d-flex p-4">
+        <p class="text-center text-white"> © 2021 Copyright </p>
+    </footer>
+
 
 
 
